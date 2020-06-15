@@ -14,6 +14,8 @@ test.to_csv('./parsed_data/tested.csv', index=False)
 
 #Find number of patients who got tested
 test1=pd.read_csv('./parsed_data/person_positive.csv')
+test1 = test1.sort_values(by='PERSON_ID')
+test1.head()
 pid = test1.PERSON_ID.unique().tolist()
 #len(pid)
 
