@@ -1,2 +1,4 @@
 *.csv
 *.txt
+*.pdf
+env/lib/python3.6/site-packages/
