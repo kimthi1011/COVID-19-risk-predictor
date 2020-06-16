@@ -92,13 +92,14 @@ test2 = pd.read_csv('../UAB_LDS/Cohort3/2020-JUNE-hackathon-N3C-covid19-Negative
 test2 = test2[['PERSON_ID','OBSERVATION_DATE','VALUE_AS_STRING','OBSERVATION_SOURCE_VALUE','QUALIFIER_SOURCE_VALUE']]
 len(test2.index)
 test2=test2[test2.PERSON_ID.isin(pid)]
-test2 = pd.read_csv('./parsed_data/observation_Negative.csv')
+#test2 = pd.read_csv('./parsed_data/observation_Negative.csv')
 test2['OBSERVATION_DATE'] = pd.to_datetime(test2['OBSERVATION_DATE'])
 #test1.dtypes
 
 test2.dtypes
 test2.head(50)
 
+#Extract only the below features of patients
 options = ['SHX Alcohol use','SHX Substance abuse use','SHX Tobacco use']
 test2 = test2[test2['OBSERVATION_SOURCE_VALUE'].isin(options) | test2['OBSERVATION_SOURCE_VALUE'].str.contains('Z68')].sort_values(by=['PERSON_ID','OBSERVATION_DATE','QUALIFIER_SOURCE_VALUE'])
 test = test2.groupby(['PERSON_ID', 'QUALIFIER_SOURCE_VALUE'], as_index=False).last()

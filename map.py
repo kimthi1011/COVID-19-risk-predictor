@@ -1,5 +1,11 @@
 import pandas as pd
 
+'''
+Map all the conditions of patients to OMOP database.
+We're trying to map to ICD10 codes for easy filtering and converting to categorical values.
+
+'''
+
 pos=pd.read_csv('./parsed_data/condition_data_negative.csv')
 pos.head()
 omop = pd.read_csv('./parsed_data/OMOP_CONCEPT.txt', sep="|")
