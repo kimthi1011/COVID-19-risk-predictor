@@ -36,22 +36,23 @@ open and read measurement.csv file for both positive and negative tested dataset
 We try to extract COVID tests and results along with dates of patients.
 '''
 #Find number of patients from positive/negative dataset who got tested to extract the measurements of only those patients.
-test1=pd.read_csv('./parsed_data/person_positive.csv')
+test1=pd.read_csv('./parsed_data/person_negative.csv')
 test1 = test1.sort_values(by='PERSON_ID')
 test1.head()
 pid = test1.PERSON_ID.unique().tolist()
 #len(pid)
 
 #Read the file measurement.csv and extract the tests and results
-test = pd.read_csv('../UAB_LDS/Cohort1/2020-JUNE-hackathon-N3C-covid19-Positive/measurement.csv', sep="|", header = 0)
+test = pd.read_csv('../UAB_LDS/Cohort3/2020-JUNE-hackathon-N3C-covid19-Negative/measurement.csv', sep="|", header = 0)
 test.head()
 test = test[['PERSON_ID','MEASUREMENT_DATE','MEASUREMENT_SOURCE_VALUE','VALUE_SOURCE_VALUE']]
 test=test[test.PERSON_ID.isin(pid)]
 len(test['MEASUREMENT_SOURCE_VALUE'])
-test = test[test.MEASUREMENT_SOURCE_VALUE.str.contains('cov',regex=True,na=False, flags = re.IGNORECASE) & ~test.MEASUREMENT_SOURCE_VALUE.str.contains('quest',regex=True,na=False, flags = re.IGNORECASE)]
-pid = test.PERSON_ID.unique().tolist()
+test = test[test.MEASUREMENT_SOURCE_VALUE.str.contains('cov',regex=True,na=False, flags = re.IGNORECASE) & ~test.MEASUREMENT_SOURCE_VALUE.str.contains('quest',regex=True,na=False, flags = re.IGNORECASE)].sort_values(by=['PERSON_ID','MEASUREMENT_DATE'])
+#pid = test.PERSON_ID.unique().tolist()
+test.head(50)
 test['MEASUREMENT_DATE'] = pd.to_datetime(test['MEASUREMENT_DATE'])
-test.to_csv('./parsed_data/tested.csv', index=False)
+test.to_csv('./parsed_data/tested_negative.csv', index=False)
 
 
 '''
