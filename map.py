@@ -41,4 +41,4 @@ upos['group'] = upos['CONCEPT_CODE'].astype(str).str[0]
 upos = upos[['PERSON_ID','CONCEPT_CODE', 'group']]
 upos.to_csv('./parsed_data/2week-filter/date-filter-ICD10_grouped_positive.csv', index=False)
 
-merge[merge['CONCEPT_CODE'].isna()].to_csv('./parsed_data/unmap_conditions_positive.csv', index=False)
+#merge[merge['CONCEPT_CODE'].isna()].to_csv('./parsed_data/unmap_conditions_positive.csv', index=False)
