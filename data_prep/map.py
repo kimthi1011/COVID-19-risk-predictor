@@ -6,7 +6,7 @@ We're trying to map to ICD10 codes for easy filtering and converting to categori
 
 '''
 
-pos=pd.read_csv('./parsed_data/test_prior_conditions/date-filter-conditions-positive.csv')
+pos=pd.read_csv('./parsed_data/test_prior_conditions/date-filter-conditions-negative.csv')
 pos.head()
 
 '''
@@ -36,10 +36,11 @@ len(upos['PERSON_ID'].unique())
 #242 positive patients
 
 #465 positive patients for all conditions before intial test
+#5454 negative
 
 upos.head()
 upos['group'] = upos['CONCEPT_CODE'].astype(str).str[0]
 upos = upos[['PERSON_ID','CONCEPT_CODE', 'group']]
-upos.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-ICD10-positive.csv', index=False)
+upos.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-ICD10-negative.csv', index=False)
 
 #merge[merge['CONCEPT_CODE'].isna()].to_csv('./parsed_data/unmap_conditions_positive.csv', index=False)

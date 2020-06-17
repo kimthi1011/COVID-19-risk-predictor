@@ -71,7 +71,7 @@ len(cond1)
 cond1.columns = cond.columns
 cond1.dtypes
 cond1.sort_values('PERSON_ID').head()
-cond1.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-positive.csv', index=False)
+cond.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-negative.csv', index=False)
 len(cond1.CONDITION_SOURCE_CONCEPT_ID.unique())
 #2-week prior conditions to test
 #707 - positive
