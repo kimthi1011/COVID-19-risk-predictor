@@ -46,11 +46,12 @@ cond.dtypes
 cond1 = pd.DataFrame()
 cond.head()
 len(cond)
+cond1 = cond
 
-
-for row in cond.itertuples():
-    if(row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']):
-        cond1 = cond1.append(pd.Series(row),ignore_index=True)
+for index , row in cond.iterrows():
+    if(row.CONDITION_START_DATE >= test1[row.PERSON_ID]['MEASUREMENT_DATE']):
+        cond1.drop(index, inplace=True)
+        #cond1 = cond1.append(pd.Series(row),ignore_index=True)
         #row.to_csv('./condition_week.csv', mode='a')
 
 len(cond1)
