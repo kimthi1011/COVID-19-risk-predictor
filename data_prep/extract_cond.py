@@ -53,6 +53,8 @@ for row in cond.itertuples():
         cond1 = cond1.append(pd.Series(row),ignore_index=True)
         #row.to_csv('./condition_week.csv', mode='a')
 
+
+
 len(cond1)
 cond1.tail()
 cond1.drop([0],axis=1, inplace=True)
