@@ -29,6 +29,7 @@ test = test[test.PERSON_ID.duplicated()==False]
 pid = test.PERSON_ID.unique().tolist()
 len(test)
 #5454 - negative
+#614 - positive
 test.to_csv('./parsed_data/2week-filter/late_test_negative.csv', index=False)
 test.to_csv('./parsed_data/2week-filter/early_test_positive.csv', index=False)
 
@@ -42,27 +43,39 @@ cond.columns
 cond.dtypes
 cond1 = pd.DataFrame()
 cond.head()
+len(cond)
 
 for row in cond.itertuples():
     #row.CONDITION_START_DATE
     if np.isin(row.PERSON_ID, pid):
         #row.PERSON_ID
         #test1[row.PERSON_ID]['MEASUREMENT_DATE']
-        if ((row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']) & (row.CONDITION_START_DATE > test1[row.PERSON_ID]['symp_neg'])):
-           cond1 = cond1.append(pd.Series(row),ignore_index=True)
+        #if ((row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']) & (row.CONDITION_START_DATE > test1[row.PERSON_ID]['symp_neg'])):
+        if(row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']):
+            #row
+            cond1 = cond1.append(pd.Series(row),ignore_index=True)
         #row.to_csv('./condition_week.csv', mode='a')
 
-cond1.head()
+len(cond1)
+cond1.tail()
 cond1.drop([0],axis=1, inplace=True)
 cond1[1] = pd.to_numeric(cond1[1], downcast='integer')
 cond1[4] = pd.to_numeric(cond1[4], downcast='integer')
 len(cond1)
+#2 weeks prior to initial test
 #1681 - positive
 #26448 - negative
+
+#Any condition to prior test
+#77321 - positive
 cond1.columns = cond.columns
 cond1.dtypes
 cond1.sort_values('PERSON_ID').head()
-cond1.to_csv('./parsed_data/2week-filter/date-filter-conditions-negative.csv', index=False)
+cond1.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-positive.csv', index=False)
 len(cond1.CONDITION_SOURCE_CONCEPT_ID.unique())
+#2-week prior conditions to test
 #707 - positive
 #4373 - negative
+
+#Any prior conditions to test
+#6947 - positive
