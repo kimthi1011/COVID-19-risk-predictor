@@ -39,21 +39,18 @@ test.dtypes
 test1= test.to_dict('index')
 test1[615]
 
+cond=cond[cond.PERSON_ID.isin(pid)]
+
 cond.columns
 cond.dtypes
 cond1 = pd.DataFrame()
 cond.head()
 len(cond)
 
+
 for row in cond.itertuples():
-    #row.CONDITION_START_DATE
-    if np.isin(row.PERSON_ID, pid):
-        #row.PERSON_ID
-        #test1[row.PERSON_ID]['MEASUREMENT_DATE']
-        #if ((row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']) & (row.CONDITION_START_DATE > test1[row.PERSON_ID]['symp_neg'])):
-        if(row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']):
-            #row
-            cond1 = cond1.append(pd.Series(row),ignore_index=True)
+    if(row.CONDITION_START_DATE < test1[row.PERSON_ID]['MEASUREMENT_DATE']):
+        cond1 = cond1.append(pd.Series(row),ignore_index=True)
         #row.to_csv('./condition_week.csv', mode='a')
 
 len(cond1)

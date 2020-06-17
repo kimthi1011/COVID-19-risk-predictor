@@ -63,14 +63,60 @@ df, df1= dataframe()
 ''
 ''
 
-gender = st.sidebar.radio('Select Gender:',('Male','Female','Other'))
-if gender == 'Male':
-    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq(gender)])
-elif gender == 'Female':
-    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq(gender)])
-elif gender == 'Other':
+#gender = st.sidebar.button('Male')
+'Gender:'
+if st.button('Male'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('Male')])
+elif st.button('Female'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('Female')])
+elif st.button('Other'):
     session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('U')])
 
+'''
+
+
+'''
+'Age range:'
+if st.button('<10'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('<10')])
+elif st.button('10-30'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('10*30')])
+elif st.button('30-50'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('30*50')])
+elif st.button('50+'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('50+')])
+
+'''
+
+
+'''
+'Race:'
+if st.button('White'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('white')])
+elif st.button('African American/Black'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('black')])
+elif st.button('Hispanic/Latino'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('latino')])
+elif st.button('Other race'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('other race')])
+
+'''
+
+
+'''
+'Smoking History:'
+if st.button('Current'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('Current smoker')])
+elif st.button('Former'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('former smoker')])
+elif st.button('None'):
+    session_state.df2= session_state.df2.append(df[df.CONCEPT_NAME.eq('no smoking')])
+
+
+'''
+
+
+'''
 Test = st.sidebar.text_input("Search condition", 'cough')
 if Test:
     df1 = df1.append(df[df.CONCEPT_NAME.str.contains(Test, flags=re.IGNORECASE)])
@@ -95,13 +141,16 @@ session_state.df2
 '''
 if session_state.df2.empty:
     #session_state.score
-    ''
+    st.write(imc_chart(session_state.score))
+    '## 💊 Patient Risk Score:', session_state.score 
 else:
-    session_state.df2.CONCEPT_NAME.unique()
+    session_state.df2 = session_state.df2.drop_duplicates(['CONCEPT_ID'])
     session_state.score = session_state.df2['score'].sum() +500
+    st.write(imc_chart(session_state.score))
+    '## 💊 Patient Risk Score:', session_state.score 
 
-st.write(imc_chart(session_state.score))
-'## 💊 Patient Risk Score:', session_state.score 
+#st.write(imc_chart(session_state.score))
+#'## 💊 Patient Risk Score:', session_state.score 
 ''
 ''
 #st.image('score.png', caption='Risk score range',
