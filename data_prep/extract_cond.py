@@ -50,8 +50,8 @@ cond1 = cond
 
 for index , row in cond.iterrows():
     if(row.CONDITION_START_DATE >= test1[row.PERSON_ID]['MEASUREMENT_DATE']):
-        cond1.drop(index, inplace=True)
-        #cond1 = cond1.append(pd.Series(row),ignore_index=True)
+        #cond1.drop(index, inplace=True)
+        cond1 = cond1.append(pd.Series(row),ignore_index=True)
         #row.to_csv('./condition_week.csv', mode='a')
 
 

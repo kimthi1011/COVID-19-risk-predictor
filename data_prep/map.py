@@ -20,7 +20,7 @@ omop1 = omop.drop(omop.loc[omop['CONCEPT_CODE']=='U07.1'].index)
 omop1.to_csv('./parsed_data/OMOP.csv', index=False)
 '''
 
-omop1 = pd.read_csv('../parsed_data/OMOP.csv')
+omop1 = pd.read_csv('./parsed_data/OMOP.csv')
 len(omop1)
 #96307 ICD10 codes
 
@@ -35,10 +35,11 @@ len(upos['PERSON_ID'].unique())
 #2260 negative patients
 #242 positive patients
 
+#465 positive patients for all conditions before intial test
 
 upos.head()
 upos['group'] = upos['CONCEPT_CODE'].astype(str).str[0]
 upos = upos[['PERSON_ID','CONCEPT_CODE', 'group']]
-upos.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-ICD10-positive', index=False)
+upos.to_csv('./parsed_data/test_prior_conditions/date-filter-conditions-ICD10-positive.csv', index=False)
 
 #merge[merge['CONCEPT_CODE'].isna()].to_csv('./parsed_data/unmap_conditions_positive.csv', index=False)
