@@ -1,0 +1,77 @@
+$basepoints
+     variable bin woe points
+1: basepoints  NA  NA    138
+
+$icd_F41
+   variable      bin count count_distr good  bad   badprob         woe      bin_iv   total_iv breaks is_special_values points
+1:  icd_F41 [-Inf,1)  2241  0.91919606  186 2055 0.9170013 -0.04028552 0.001517252 0.02398847      1             FALSE      3
+2:  icd_F41 [1, Inf)   197  0.08080394    9  188 0.9543147  0.59664741 0.022471216 0.02398847    Inf             FALSE    -45
+
+$icd_I25
+   variable      bin count count_distr good  bad   badprob         woe      bin_iv   total_iv breaks is_special_values points
+1:  icd_I25 [-Inf,1)  2226  0.91304348  187 2039 0.9159928 -0.05346382 0.002669127 0.04241403      1             FALSE      5
+2:  icd_I25 [1, Inf)   212  0.08695652    8  204 0.9622642  0.79610848 0.039744904 0.04241403    Inf             FALSE    -76
+
+$icd_I50
+   variable      bin count count_distr good  bad   badprob         woe      bin_iv   total_iv breaks is_special_values points
+1:  icd_I50 [-Inf,1)  2219  0.91017227  187 2032 0.9157278 -0.05690278 0.003018397 0.04703744      1             FALSE      4
+2:  icd_I50 [1, Inf)   219  0.08982773    8  211 0.9634703  0.82984662 0.044019048 0.04703744    Inf             FALSE    -56
+
+$icd_N18
+   variable      bin count count_distr good  bad   badprob         woe      bin_iv   total_iv breaks is_special_values points
+1:  icd_N18 [-Inf,1)  2214  0.90812141  186 2028 0.9159892 -0.05351128 0.002659507 0.03898237      1             FALSE      6
+2:  icd_N18 [1, Inf)   224  0.09187859    9  215 0.9598214  0.73084347 0.036322863 0.03898237    Inf             FALSE    -85
+
+$icd_O09
+   variable      bin count count_distr good  bad   badprob         woe      bin_iv  total_iv breaks is_special_values points
+1:  icd_O09 [-Inf,1)  2244  0.92042658  192 2052 0.9144385 -0.07349514 0.005127697 0.1245092      1             FALSE      4
+2:  icd_O09 [1, Inf)   194  0.07957342    3  191 0.9845361  1.71109116 0.119381456 0.1245092    Inf             FALSE    -95
+
+$icd_O99
+   variable      bin count count_distr good  bad   badprob         woe     bin_iv  total_iv breaks is_special_values points
+1:  icd_O99 [-Inf,1)  2243  0.92001641  192 2051 0.9144004 -0.07398259 0.00519469 0.1257057      1             FALSE      4
+2:  icd_O99 [1, Inf)   195  0.07998359    3  192 0.9846154  1.71631311 0.12051097 0.1257057    Inf             FALSE    -91
+
+$icd_R05
+   variable      bin count count_distr good  bad   badprob        woe    bin_iv total_iv breaks is_special_values points
+1:  icd_R05 [-Inf,1)  1994   0.8178835   94 1900 0.9528586  0.5637444 0.2057828 0.651103      1             FALSE    -39
+2:  icd_R05 [1, Inf)   444   0.1821165  101  343 0.7725225 -1.2199600 0.4453202 0.651103    Inf             FALSE     84
+
+$RACE_SOURCE_VALUE
+            variable                                                 bin count count_distr good  bad   badprob        woe       bin_iv
+1: RACE_SOURCE_VALUE                                  Decline/Refuse%,%U    34 0.013945857    2   32 0.9411765  0.3350828 0.0013611081
+2: RACE_SOURCE_VALUE                                               Asian    26 0.010664479    4   22 0.8461538 -0.7327578 0.0077679011
+3: RACE_SOURCE_VALUE Multiple%,%Other%,%American Indian or Alaska Native     8 0.003281378    0    8 1.0000000 -0.3480140 0.0005166708
+4: RACE_SOURCE_VALUE                                               White  1314 0.538966366   82 1232 0.9375951  0.2721690 0.0356203042
+5: RACE_SOURCE_VALUE                           Black or African American   982 0.402789171  100  882 0.8981670 -0.2604840 0.0304783900
+6: RACE_SOURCE_VALUE                                  Hispanic or Latino    74 0.030352748    7   67 0.9054054 -0.1787234 0.0010447098
+     total_iv                                              breaks is_special_values points
+1: 0.07678908                                  Decline/Refuse%,%U             FALSE    -32
+2: 0.07678908                                               Asian             FALSE     70
+3: 0.07678908 Multiple%,%Other%,%American Indian or Alaska Native             FALSE     33
+4: 0.07678908                                               White             FALSE    -26
+5: 0.07678908                           Black or African American             FALSE     25
+6: 0.07678908                                  Hispanic or Latino             FALSE     17
+
+$approx_age
+     variable       bin count count_distr good  bad   badprob        woe      bin_iv   total_iv breaks is_special_values points
+1: approx_age [-Inf,20)    39  0.01599672    5   34 0.8717949 -0.5256474 0.005510233 0.07552839     20             FALSE     30
+2: approx_age   [20,40)   758  0.31091058   48  710 0.9366755  0.2514940 0.017701782 0.07552839     40             FALSE    -14
+3: approx_age   [40,55)   475  0.19483183   57  418 0.8800000 -0.4501398 0.047692374 0.07552839     55             FALSE     26
+4: approx_age [55, Inf)  1166  0.47826087   85 1081 0.9271012  0.1004206 0.004624005 0.07552839    Inf             FALSE     -6
+
+$observation_combined_SHX.Alcohol.use.Former
+                                      variable      bin count count_distr good  bad   badprob        woe      bin_iv   total_iv breaks
+1: observation_combined_SHX.Alcohol.use.Former [-Inf,1)  2145   0.8798195  180 1965 0.9160839 -0.0522793 0.002458072 0.02488574      1
+2: observation_combined_SHX.Alcohol.use.Former [1, Inf)   293   0.1201805   15  278 0.9488055  0.4770009 0.022427665 0.02488574    Inf
+   is_special_values points
+1:             FALSE      3
+2:             FALSE    -28
+
+$observation_combined_SHX.Tobacco.use.Current
+                                       variable      bin count count_distr good  bad   badprob        woe     bin_iv  total_iv breaks
+1: observation_combined_SHX.Tobacco.use.Current [-Inf,1)  1972   0.8088597  180 1792 0.9087221 -0.1444392 0.01793169 0.1372179      1
+2: observation_combined_SHX.Tobacco.use.Current [1, Inf)   466   0.1911403   15  451 0.9678112  0.9608472 0.11928621 0.1372179    Inf
+   is_special_values points
+1:             FALSE      9
+2:             FALSE    -59
