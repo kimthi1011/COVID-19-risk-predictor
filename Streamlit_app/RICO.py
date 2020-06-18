@@ -1,11 +1,7 @@
-import pandas as pd
 import streamlit as st
-from io import StringIO
 import SessionState
-import numpy as np
 import plotly.graph_objects as go
-import requests
-import re
+
  
 st.title("COVID-19 Risk Predictor")
 st.markdown("<h3 style='text-align: right;'>by RICO - Team 4</h3>", unsafe_allow_html=True)
