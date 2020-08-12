@@ -1,5 +1,4 @@
 import streamlit as st
-import SessionState
 import plotly.graph_objects as go
 
  
@@ -10,8 +9,6 @@ st.markdown("<h3 style='text-align: right;'>by RICO - Team 4</h3>", unsafe_allow
  
  
 '''
-session_state = SessionState.get(score=137 )
-
 #pd.options.display.max_colwidth = 500
 
 def imc_chart(imc):
@@ -237,7 +234,7 @@ elif copd == 'No':
     copd = 3
 
  
-total = session_state.score + cough + smoke + fever + tired +muscle + mucus +headache +t2d + pregnant + kidney + heart + anxiety + hyper + copd + drink + age + race
+total = 137 + cough + smoke + fever + tired +muscle + mucus +headache +t2d + pregnant + kidney + heart + anxiety + hyper + copd + drink + age + race
 st.write(imc_chart(total))
 '## 💊 Patient Risk Score:', total 
 
